@@ -6,6 +6,8 @@ import { MemberFrequencyChart } from "../../components/MemberFrequencyChart";
 import { BrandUsersMetricCard } from "../../components/BrandUsersMetricCard";
 import { PaymentPlansMetricCard } from "../../components/PaymentPlansMetricCard";
 import { LifetimeValueChart } from "../../components/LifetimeValueChart";
+import { RecruitChart } from "../../components/RecruitChart";
+import { ConversionChart } from "../../components/ConversionChart";
 
 export const Analytics = (): JSX.Element => {
   return (
@@ -78,6 +80,12 @@ export const Analytics = (): JSX.Element => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <BrandUsersMetricCard />
           <PaymentPlansMetricCard />
+        </div>
+
+        {/* Recruit and Conversion Charts */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <RecruitChart />
+          <ConversionChart />
         </div>
       </div>
     </PageTemplate>

@@ -4,6 +4,8 @@ import { Button } from "../../components/ui/button";
 import { RetentionChart } from "../../components/RetentionChart";
 import { MemberFrequencyChart } from "../../components/MemberFrequencyChart";
 import { BrandUsersMetricCard } from "../../components/BrandUsersMetricCard";
+import { PaymentPlansMetricCard } from "../../components/PaymentPlansMetricCard";
+import { LifetimeValueChart } from "../../components/LifetimeValueChart";
 
 export const Analytics = (): JSX.Element => {
   return (
@@ -61,14 +63,22 @@ export const Analytics = (): JSX.Element => {
           </Card>
         </div>
 
+        {/* Lifetime Value Chart */}
+        <div className="w-full">
+          <LifetimeValueChart />
+        </div>
+
         {/* Charts Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <RetentionChart />
           <MemberFrequencyChart />
         </div>
 
-        {/* Brand Users Analytics */}
-        <BrandUsersMetricCard />
+        {/* Brand Users and Payment Plans Analytics */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <BrandUsersMetricCard />
+          <PaymentPlansMetricCard />
+        </div>
       </div>
     </PageTemplate>
   );

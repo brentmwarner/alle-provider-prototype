@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { PageTemplate } from "../../components/PageTemplate";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
+import { ReportBuilder } from "../../components/ReportBuilder";
 
 export const Reports = (): JSX.Element => {
+  const [showReportBuilder, setShowReportBuilder] = useState(false);
   const reports = [
     {
       title: "Patient 360 Report",
@@ -43,14 +46,25 @@ export const Reports = (): JSX.Element => {
     }
   ];
 
+  const handleGenerateReport = (config: any) => {
+    console.log("Generating report with config:", config);
+    // TODO: Implement actual report generation logic
+    // This would typically call an API endpoint with the config
+  };
+
   return (
+    <>
     <PageTemplate 
       title="Reports" 
       activeMenuItem="Reports"
       showSearch={false}
       description="Generate and download comprehensive business reports"
       action={
-        <Button variant="default" size="xl">
+        <Button 
+          variant="default" 
+          size="xl"
+          onClick={() => setShowReportBuilder(true)}
+        >
           Generate New Report
         </Button>
       }
@@ -72,7 +86,7 @@ export const Reports = (): JSX.Element => {
                 <div className="flex items-center gap-2">
                   {report.hasDownload && (
                     <Button 
-                      variant="outline" 
+                      variant="default" 
                       size="sm"
                       className="text-xs"
                     >
@@ -93,5 +107,12 @@ export const Reports = (): JSX.Element => {
         </div>
       </div>
     </PageTemplate>
+    
+    <ReportBuilder
+      open={showReportBuilder}
+      onOpenChange={setShowReportBuilder}
+      onGenerateReport={handleGenerateReport}
+    />
+    </>
   );
 };

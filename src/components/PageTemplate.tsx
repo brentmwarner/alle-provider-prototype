@@ -65,6 +65,26 @@ export const PageTemplate: React.FC<PageTemplateProps> = ({
     return {};
   });
 
+  // Handle responsive sidebar auto-open/close at 1275px
+  React.useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 1275) {
+        setIsSidebarOpen(false);
+      } else {
+        setIsSidebarOpen(true);
+      }
+    };
+
+    // Check on mount
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Add global styles to ensure proper height inheritance
   React.useEffect(() => {
     // Set html and body height
@@ -159,10 +179,10 @@ export const PageTemplate: React.FC<PageTemplateProps> = ({
       </header>
 
       {/* Main Layout Container */}
-      <div className="flex flex-1">
+      <div className="flex flex-1 overflow-hidden">
         {/* Sidebar Navigation */}
         {isSidebarOpen && (
-          <aside className="flex flex-col w-[270px] h-full bg-neutral-50 border-r border-[#dedad7]">
+          <aside className="flex flex-col w-[270px] h-full bg-neutral-50 border-r border-[#dedad7] transition-all duration-300 ease-in-out">
           <div className="flex flex-col h-full">
             {/* Business Section */}
             <div className="flex flex-col gap-4 p-4">
@@ -301,7 +321,7 @@ export const PageTemplate: React.FC<PageTemplateProps> = ({
         )}
 
         {/* Main Content */}
-        <main className="flex-1 flex flex-col items-start gap-[60px] px-14 py-0 overflow-auto">
+        <main className="flex-1 flex flex-col items-start gap-[60px] px-14 py-0 overflow-auto transition-all duration-300 ease-in-out">
           <div className="flex self-stretch w-full flex-col items-start">
             {/* Location Header */}
             <div className="flex flex-col w-full items-start pt-6 pb-0 px-0 bg-white">

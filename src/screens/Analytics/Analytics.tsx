@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/ca
 import { Button } from "../../components/ui/button";
 import { RetentionChart } from "../../components/RetentionChart";
 import { MemberFrequencyChart } from "../../components/MemberFrequencyChart";
+import { BrandUsersMetricCard } from "../../components/BrandUsersMetricCard";
 
 export const Analytics = (): JSX.Element => {
   return (
@@ -66,52 +67,8 @@ export const Analytics = (): JSX.Element => {
           <MemberFrequencyChart />
         </div>
 
-        {/* Treatment Analytics */}
-        <Card className="border-[#dedad7]">
-          <CardHeader>
-            <CardTitle className="text-lg font-medium text-[#090909]">Popular Treatments</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-[#090909]">Botox Injections</span>
-                <div className="flex items-center gap-2">
-                  <div className="w-32 bg-gray-200 rounded-full h-2">
-                    <div className="bg-[#9a6b5e] h-2 rounded-full" style={{ width: '75%' }}></div>
-                  </div>
-                  <span className="text-sm font-medium text-[#090909]">75%</span>
-                </div>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-[#090909]">Chemical Peels</span>
-                <div className="flex items-center gap-2">
-                  <div className="w-32 bg-gray-200 rounded-full h-2">
-                    <div className="bg-[#9a6b5e] h-2 rounded-full" style={{ width: '60%' }}></div>
-                  </div>
-                  <span className="text-sm font-medium text-[#090909]">60%</span>
-                </div>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-[#090909]">Laser Treatments</span>
-                <div className="flex items-center gap-2">
-                  <div className="w-32 bg-gray-200 rounded-full h-2">
-                    <div className="bg-[#9a6b5e] h-2 rounded-full" style={{ width: '45%' }}></div>
-                  </div>
-                  <span className="text-sm font-medium text-[#090909]">45%</span>
-                </div>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-[#090909]">Dermal Fillers</span>
-                <div className="flex items-center gap-2">
-                  <div className="w-32 bg-gray-200 rounded-full h-2">
-                    <div className="bg-[#9a6b5e] h-2 rounded-full" style={{ width: '30%' }}></div>
-                  </div>
-                  <span className="text-sm font-medium text-[#090909]">30%</span>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        {/* Brand Users Analytics */}
+        <BrandUsersMetricCard />
       </div>
     </PageTemplate>
   );

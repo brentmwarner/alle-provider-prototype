@@ -135,6 +135,7 @@ export function LifetimeValueChart() {
                     })
                   }}
                   formatter={(value) => [`$${value}`, undefined]}
+                  indicator="dot"
                 />
               }
             />
@@ -144,6 +145,7 @@ export function LifetimeValueChart() {
               stroke="#9a6b5e"
               strokeWidth={3}
               dot={false}
+              activeDot={{ r: 6, fill: "#9a6b5e" }}
             />
             <Line
               dataKey="nonMembers"
@@ -151,6 +153,7 @@ export function LifetimeValueChart() {
               stroke="#e8d4d1"
               strokeWidth={3}
               dot={false}
+              activeDot={{ r: 6, fill: "#e8d4d1" }}
             />
           </LineChart>
         </ChartContainer>

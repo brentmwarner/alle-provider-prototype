@@ -40,6 +40,8 @@ interface PageTemplateProps {
   showSearch?: boolean;
   searchPlaceholder?: string;
   children: React.ReactNode;
+  action?: React.ReactNode;
+  description?: string;
 }
 
 export const PageTemplate: React.FC<PageTemplateProps> = ({
@@ -48,6 +50,8 @@ export const PageTemplate: React.FC<PageTemplateProps> = ({
   showSearch = false,
   searchPlaceholder = "Search patients by name or number",
   children,
+  action,
+  description,
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -239,6 +243,10 @@ export const PageTemplate: React.FC<PageTemplateProps> = ({
                         onClick={() => {
                           if (item.submenu) {
                             toggleSubmenu(item.label);
+                            // Auto-navigate to first submenu item (Analytics) when Insights is clicked
+                            if (item.label === "Insights" && item.submenu.length > 0) {
+                              handleNavigation(item.submenu[0].path);
+                            }
                           } else if (item.path) {
                             handleNavigation(item.path);
                           }
@@ -306,12 +314,20 @@ export const PageTemplate: React.FC<PageTemplateProps> = ({
               </div>
 
               {/* Page Header */}
-              <header className="flex flex-wrap items-start gap-[12px] px-0 py-6 w-full">
-                <div className="flex flex-col min-w-[603px] items-start gap-2 flex-1">
-                  <h1 className="self-stretch text-4xl font-medium text-[#090909]" style={{ fontSize: '36px' }}>
+              <header className="flex items-start justify-between px-0 py-6 w-full">
+                <div className="flex flex-col gap-4">
+                  <h1 className="text-4xl font-medium text-[#090909]" style={{ fontSize: '36px' }}>
                     {title}
                   </h1>
+                  {description && (
+                    <p className="text-[#787676]">{description}</p>
+                  )}
                 </div>
+                {action && (
+                  <div className="flex items-start" style={{ paddingTop: '4px' }}>
+                    {action}
+                  </div>
+                )}
               </header>
             </div>
 

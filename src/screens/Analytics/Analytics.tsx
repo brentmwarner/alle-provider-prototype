@@ -1,5 +1,6 @@
 import { PageTemplate } from "../../components/PageTemplate";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
 import { RetentionChart } from "../../components/RetentionChart";
 import { MemberFrequencyChart } from "../../components/MemberFrequencyChart";
 
@@ -9,6 +10,11 @@ export const Analytics = (): JSX.Element => {
       title="Analytics" 
       activeMenuItem="Analytics"
       showSearch={false}
+      action={
+        <Button variant="default" size="xl">
+          Export Analytics
+        </Button>
+      }
     >
       <div className="flex flex-col gap-6">
         {/* Analytics Overview Cards */}
@@ -35,7 +41,7 @@ export const Analytics = (): JSX.Element => {
 
           <Card className="border-[#dedad7]">
             <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-medium text-[#787676]">Reward Offer Amount Remaining</CardTitle>
+              <CardTitle className="text-sm font-medium text-[#787676]">Reward Amount Remaining</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-2xl font-semibold text-[#090909]">$142,547</p>

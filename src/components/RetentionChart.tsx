@@ -131,6 +131,15 @@ export function RetentionChart() {
           </BarChart>
         </ChartContainer>
         
+        {/* Value Highlight Banner */}
+        <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+          <div className="flex flex-col">
+            <p className="text-base font-medium text-[#090909]">Retention Value</p>
+            <p className="text-2xl font-semibold text-[#090909] mt-2 mb-2">$487,320</p>
+            <p className="text-sm text-[#787676]">Estimated revenue from retained Allē members, from 782 retained members</p>
+          </div>
+        </div>
+        
         {/* Legend */}
         <div className="flex items-center justify-center gap-8 mt-6 px-6 pb-2">
           <div className="flex items-center gap-2">

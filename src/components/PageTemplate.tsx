@@ -107,9 +107,7 @@ export const PageTemplate: React.FC<PageTemplateProps> = ({
 
   const isMenuActive = (item: any): boolean => {
     if (item.path && location.pathname === item.path) return true;
-    if (item.submenu) {
-      return item.submenu.some((sub: any) => location.pathname === sub.path);
-    }
+    // Don't highlight parent menu items when a submenu item is active
     return false;
   };
 

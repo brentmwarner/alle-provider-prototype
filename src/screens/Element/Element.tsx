@@ -10,7 +10,6 @@ export const Element = (): JSX.Element => {
     >
       {/* Dashboard content goes here */}
       <div className="flex flex-col gap-6">
-        <p className="text-[#090909]">Dashboard content area - ready for customization</p>
       </div>
     </PageTemplate>
   );

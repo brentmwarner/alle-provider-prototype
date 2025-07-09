@@ -1,5 +1,7 @@
 import { PageTemplate } from "../../components/PageTemplate";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
+import { RetentionChart } from "../../components/RetentionChart";
+import { MemberFrequencyChart } from "../../components/MemberFrequencyChart";
 
 export const Analytics = (): JSX.Element => {
   return (
@@ -13,11 +15,11 @@ export const Analytics = (): JSX.Element => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <Card className="border-[#dedad7]">
             <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-medium text-[#787676]">Total Patients</CardTitle>
+              <CardTitle className="text-sm font-medium text-[#787676]">Total Active Members</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-semibold text-[#090909]">1,234</p>
-              <p className="text-sm text-[#787676] mt-1">+12% from last month</p>
+              <p className="text-2xl font-semibold text-[#090909]">3,180</p>
+              <p className="text-sm text-[#787676] mt-2">+12% from rolling 24 months</p>
             </CardContent>
           </Card>
 
@@ -26,55 +28,36 @@ export const Analytics = (): JSX.Element => {
               <CardTitle className="text-sm font-medium text-[#787676]">Revenue</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-semibold text-[#090909]">$45,678</p>
-              <p className="text-sm text-[#787676] mt-1">+8% from last month</p>
+              <p className="text-2xl font-semibold text-[#090909]">$1,096,987</p>
+              <p className="text-sm text-[#787676] mt-2">All time in Allē</p>
             </CardContent>
           </Card>
 
           <Card className="border-[#dedad7]">
             <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-medium text-[#787676]">Appointments</CardTitle>
+              <CardTitle className="text-sm font-medium text-[#787676]">Reward Offer Amount Remaining</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-semibold text-[#090909]">234</p>
-              <p className="text-sm text-[#787676] mt-1">This week</p>
+              <p className="text-2xl font-semibold text-[#090909]">$142,547</p>
+              <p className="text-sm text-[#787676] mt-2">Alle time in Allē</p>
             </CardContent>
           </Card>
 
           <Card className="border-[#dedad7]">
             <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-medium text-[#787676]">Satisfaction</CardTitle>
+              <CardTitle className="text-sm font-medium text-[#787676]">Flash Redemption Rate</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-semibold text-[#090909]">96%</p>
-              <p className="text-sm text-[#787676] mt-1">Patient rating</p>
+              <p className="text-2xl font-semibold text-[#090909]">37.13%</p>
+              <p className="text-sm text-[#787676] mt-2">+2.78% from benchmark</p>
             </CardContent>
           </Card>
         </div>
 
         {/* Charts Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <Card className="border-[#dedad7]">
-            <CardHeader>
-              <CardTitle className="text-lg font-medium text-[#090909]">Revenue Trend</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="h-64 flex items-center justify-center bg-gray-50 rounded">
-                <p className="text-[#787676]">Chart placeholder - Revenue over time</p>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="border-[#dedad7]">
-            <CardHeader>
-              <CardTitle className="text-lg font-medium text-[#090909]">Patient Demographics</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="h-64 flex items-center justify-center bg-gray-50 rounded">
-                <p className="text-[#787676]">Chart placeholder - Age distribution</p>
-              </div>
-            </CardContent>
-          </Card>
+          <RetentionChart />
+          <MemberFrequencyChart />
         </div>
 
         {/* Treatment Analytics */}

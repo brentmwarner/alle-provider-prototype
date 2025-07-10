@@ -41,11 +41,11 @@ const chartConfig = {
   },
   twoTime: {
     label: "2x Members", 
-    color: "#b8998d",
+    color: "#B98977",
   },
   threePlus: {
     label: "3x+ Members",
-    color: "#60433B",
+    color: "#090909",
   },
 } satisfies ChartConfig
 
@@ -84,7 +84,7 @@ export function MemberFrequencyChart() {
               tickFormatter={(value) => value.toLocaleString()}
             />
             <ChartTooltip
-              cursor={{ fill: 'rgba(0, 0, 0, 0.05)' }}
+              cursor={false}
               content={
                 <ChartTooltipContent 
                   formatter={(value: any, name: string, props: any) => {
@@ -96,8 +96,8 @@ export function MemberFrequencyChart() {
               }
             />
             
-            <Bar dataKey="3x+" stackId="a" fill="#60433B" radius={[0, 0, 0, 0]} isAnimationActive={false} />
-            <Bar dataKey="2x" stackId="a" fill="#b8998d" radius={[0, 0, 0, 0]} isAnimationActive={false} />
+            <Bar dataKey="3x+" stackId="a" fill="#090909" radius={[0, 0, 0, 0]} isAnimationActive={false} />
+            <Bar dataKey="2x" stackId="a" fill="#B98977" radius={[0, 0, 0, 0]} isAnimationActive={false} />
             <Bar dataKey="1x" stackId="a" fill="#e8d4d1" radius={[4, 4, 0, 0]} isAnimationActive={false} />
           </BarChart>
         </ChartContainer>
@@ -128,11 +128,11 @@ export function MemberFrequencyChart() {
             <span className="text-sm text-[#090909]">1x Visit</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-sm bg-[#b8998d]" />
+            <div className="w-3 h-3 rounded-sm bg-[#B98977]" />
             <span className="text-sm text-[#090909]">2x Visits</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-sm bg-[#60433B]" />
+            <div className="w-3 h-3 rounded-sm bg-[#090909]" />
             <span className="text-sm text-[#090909]">3x+ Visits</span>
           </div>
         </div>

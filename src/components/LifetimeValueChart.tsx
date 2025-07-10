@@ -47,7 +47,7 @@ const chartData = [
 const chartConfig = {
   alleyMembers: {
     label: "Allē Members",
-    color: "#9a6b5e",
+    color: "#B98977",
   },
   nonMembers: {
     label: "Non-Allē Members",

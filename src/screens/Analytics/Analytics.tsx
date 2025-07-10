@@ -3,8 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/ca
 import { Button } from "../../components/ui/button";
 import { RetentionChart } from "../../components/RetentionChart";
 import { MemberFrequencyChart } from "../../components/MemberFrequencyChart";
-import { BrandUsersMetricCard } from "../../components/BrandUsersMetricCard";
-import { PaymentPlansMetricCard } from "../../components/PaymentPlansMetricCard";
 import { LifetimeValueChart } from "../../components/LifetimeValueChart";
 import { RecruitChart } from "../../components/RecruitChart";
 import { ConversionChart } from "../../components/ConversionChart";
@@ -36,7 +34,7 @@ export const Analytics = (): JSX.Element => {
 
           <Card className="border-[#dedad7]">
             <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-medium text-[#787676]">Revenue</CardTitle>
+              <CardTitle className="text-sm font-medium text-[#787676]">Total Value Redeemed</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-2xl font-semibold text-[#090909]">$1,096,987</p>
@@ -74,12 +72,6 @@ export const Analytics = (): JSX.Element => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <RetentionChart />
           <MemberFrequencyChart />
-        </div>
-
-        {/* Brand Users and Payment Plans Analytics */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <BrandUsersMetricCard />
-          <PaymentPlansMetricCard />
         </div>
 
         {/* Recruit and Conversion Charts */}

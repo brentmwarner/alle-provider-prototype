@@ -18,7 +18,7 @@ const brandUserData: BrandUserData[] = [
     label: "Two Brand Users", 
     count: 975,
     percentage: 31,
-    color: "#b8998d"
+    color: "#B98977"
   },
   {
     label: "3+ Brand Users",

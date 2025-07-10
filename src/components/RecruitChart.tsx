@@ -33,7 +33,7 @@ const chartData = [
 const chartConfig = {
   agn: {
     label: "AGN",
-    color: "#b8998d",
+    color: "#B98977",
   },
   newMembers: {
     label: "New Members", 
@@ -131,14 +131,6 @@ export function RecruitChart() {
             </Bar>
           </BarChart>
         </ChartContainer>
-        
-        {/* Total values above bars */}
-        <div className="absolute top-[110px] left-[50%] transform -translate-x-[50%] w-full">
-          <div className="flex justify-around px-12">
-            <span className="text-sm font-medium text-[#090909]">631</span>
-            <span className="text-sm font-medium text-[#090909]">643</span>
-          </div>
-        </div>
         
         {/* Legend */}
         <div className="flex items-center justify-center gap-8 mt-6 px-6 pb-2">

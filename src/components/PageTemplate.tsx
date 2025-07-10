@@ -20,6 +20,7 @@ const businessMenuItems = [
 
 const locationMenuItems = [
   { label: "Dashboard", path: "/dashboard", active: false },
+  { label: "Patient 360", path: "/patient-360", active: false },
   { label: "Marketing", path: "/marketing", active: false, hasSubmenu: true },
   { label: "Store", path: "/store", active: false, hasSubmenu: true },
   { 
@@ -255,11 +256,11 @@ export const PageTemplate: React.FC<PageTemplateProps> = ({
                     <React.Fragment key={index}>
                       <Button
                         variant="ghost"
-                        className={`justify-between h-9 ${
+                        className={`justify-between h-9 pl-2 pr-2.5 ${
                           isActive
-                            ? "bg-[#c086761f] text-[#9a6b5e] font-body-small-semi-bold"
+                            ? "bg-[#b989771f] text-[#9a6b5e] font-body-small-semi-bold"
                             : "text-[#090909] font-body-small-regular"
-                        } ${item.hasSubmenu || item.submenu ? "pl-3 pr-2.5" : "pl-2 pr-2.5"}`}
+                        }`}
                         onClick={() => {
                           if (item.submenu) {
                             toggleSubmenu(item.label);
@@ -301,7 +302,7 @@ export const PageTemplate: React.FC<PageTemplateProps> = ({
                               variant="ghost"
                               className={`justify-start h-8 px-3 ${
                                 location.pathname === subItem.path
-                                  ? "bg-[#c086761f] text-[#9a6b5e] font-body-small-semi-bold"
+                                  ? "bg-[#b989771f] text-[#9a6b5e] font-body-small-semi-bold"
                                   : "text-[#090909] font-body-small-regular"
                               }`}
                               onClick={() => handleNavigation(subItem.path)}
@@ -321,7 +322,7 @@ export const PageTemplate: React.FC<PageTemplateProps> = ({
         )}
 
         {/* Main Content */}
-        <main className="flex-1 flex flex-col items-start gap-[60px] px-14 py-0 overflow-auto transition-all duration-300 ease-in-out">
+        <main className="flex-1 flex flex-col items-start gap-[60px] px-14 py-0 pb-16 overflow-auto transition-all duration-300 ease-in-out">
           <div className="flex self-stretch w-full flex-col items-start">
             {/* Location Header */}
             <div className="flex flex-col w-full items-start pt-6 pb-0 px-0 bg-white">

@@ -31,7 +31,7 @@ const chartData = [
 const chartConfig = {
   retained: {
     label: "Retained",
-    color: "#b8998d",
+    color: "#B98977",
   },
   nonRetained: {
     label: "Non-Retained", 
@@ -148,7 +148,7 @@ export function RetentionChart() {
             <span className="text-sm font-medium text-[#090909] ml-4">2,567</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-[#b8998d]" />
+            <div className="w-3 h-3 rounded-full bg-[#B98977]" />
             <span className="text-sm text-[#090909]">Non-Retained</span>
             <span className="text-sm font-medium text-[#090909] ml-4">3,421</span>
           </div>

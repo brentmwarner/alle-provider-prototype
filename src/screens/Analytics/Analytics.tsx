@@ -6,6 +6,9 @@ import { MemberFrequencyChart } from "../../components/MemberFrequencyChart";
 import { LifetimeValueChart } from "../../components/LifetimeValueChart";
 import { RecruitChart } from "../../components/RecruitChart";
 import { ConversionChart } from "../../components/ConversionChart";
+import { Tabs, TabsContent, TabsListLine, TabsTriggerLine } from "../../components/ui/tabs";
+import { PaymentPlansMetricCard } from "../../components/PaymentPlansMetricCard";
+import { BrandUsersMetricCard } from "../../components/BrandUsersMetricCard";
 
 export const Analytics = (): JSX.Element => {
   return (
@@ -68,17 +71,41 @@ export const Analytics = (): JSX.Element => {
           <LifetimeValueChart />
         </div>
 
-        {/* Charts Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <RetentionChart />
-          <MemberFrequencyChart />
-        </div>
+        {/* Performance Tabs */}
+        <Tabs defaultValue="business" className="w-full">
+          <TabsListLine>
+            <TabsTriggerLine value="business">Business Performance</TabsTriggerLine>
+            <TabsTriggerLine value="brand">Brand Performance</TabsTriggerLine>
+            <TabsTriggerLine value="alle">Allē Performance</TabsTriggerLine>
+          </TabsListLine>
+          
+          <TabsContent value="business" className="mt-6">
+            {/* Charts Section */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <RetentionChart />
+              <MemberFrequencyChart />
+            </div>
 
-        {/* Recruit and Conversion Charts */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <RecruitChart />
-          <ConversionChart />
-        </div>
+            {/* Recruit and Conversion Charts */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+              <RecruitChart />
+              <ConversionChart />
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="brand" className="mt-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <PaymentPlansMetricCard />
+              <BrandUsersMetricCard />
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="alle" className="mt-6">
+            <div className="flex items-center justify-center h-64 text-[#787676]">
+              <p>Allē Performance content coming soon</p>
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
     </PageTemplate>
   );

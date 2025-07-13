@@ -65,7 +65,7 @@ export const Reports = (): JSX.Element => {
           size="xl"
           onClick={() => setShowReportBuilder(true)}
         >
-          Generate New Report
+          Download Custom Report
         </Button>
       }
     >

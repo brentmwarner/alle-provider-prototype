@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
+import { CartesianGrid, Line, LineChart, XAxis, YAxis, Dot } from "recharts"
 
 import {
   Card,
@@ -147,27 +147,9 @@ export function LifetimeValueChart() {
               dot={false}
               activeDot={{ r: 6, fill: "#9a6b5e" }}
             />
-            <Line
-              dataKey="nonMembers"
-              type="monotone"
-              stroke="#e8d4d1"
-              strokeWidth={3}
-              dot={false}
-              activeDot={{ r: 6, fill: "#e8d4d1" }}
-            />
           </LineChart>
         </ChartContainer>
         
-        <div className="mt-6 flex items-center justify-center gap-8">
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#9a6b5e" }} />
-            <span className="text-sm text-[#787676]">Allē LTV</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#e8d4d1" }} />
-            <span className="text-sm text-[#787676]">Non-Allē LTV</span>
-          </div>
-        </div>
       </CardContent>
     </Card>
   )

@@ -9,6 +9,9 @@ import { ConversionChart } from "../../components/ConversionChart";
 import { Tabs, TabsContent, TabsListLine, TabsTriggerLine } from "../../components/ui/tabs";
 import { PaymentPlansMetricCard } from "../../components/PaymentPlansMetricCard";
 import { BrandUsersMetricCard } from "../../components/BrandUsersMetricCard";
+import { FlashMetric } from "../../components/FlashMetric";
+import { AlleTacticsCard } from "../../components/AlleTacticsCard";
+import { EmailCampaignMetric } from "../../components/EmailCampaignMetric";
 
 export const Analytics = (): JSX.Element => {
   return (
@@ -16,11 +19,6 @@ export const Analytics = (): JSX.Element => {
       title="Analytics" 
       activeMenuItem="Analytics"
       showSearch={false}
-      action={
-        <Button variant="default" size="xl">
-          Export Analytics
-        </Button>
-      }
     >
       <div className="flex flex-col gap-6">
         {/* Analytics Overview Cards */}
@@ -101,8 +99,13 @@ export const Analytics = (): JSX.Element => {
           </TabsContent>
           
           <TabsContent value="alle" className="mt-6">
-            <div className="flex items-center justify-center h-64 text-[#787676]">
-              <p>Allē Performance content coming soon</p>
+            <div className="flex flex-col gap-6">
+              <EmailCampaignMetric />
+              <FlashMetric />
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <PaymentPlansMetricCard />
+                <AlleTacticsCard />
+              </div>
             </div>
           </TabsContent>
         </Tabs>

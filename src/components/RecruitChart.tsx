@@ -50,15 +50,15 @@ export function RecruitChart() {
           New Members vs New Members from AGN
         </CardDescription>
       </CardHeader>
-      <CardContent className="pt-6">
-        <ChartContainer config={chartConfig} className="h-[320px] w-full">
+      <CardContent className="pt-4">
+        <ChartContainer config={chartConfig} className="h-[240px] w-full">
           <BarChart
             accessibilityLayer
             data={chartData}
             margin={{
-              top: 50,
+              top: 40,
               right: 20,
-              bottom: 40,
+              bottom: 30,
               left: -20,
             }}
             barCategoryGap="20%"
@@ -97,7 +97,7 @@ export function RecruitChart() {
                       y={y - 8}
                       fill="#090909"
                       textAnchor="middle"
-                      fontSize={14}
+                      fontSize={12}
                       fontWeight={500}
                     >
                       {`${value} (${percentage})`}
@@ -120,7 +120,7 @@ export function RecruitChart() {
                       y={y - 8}
                       fill="#090909"
                       textAnchor="middle"
-                      fontSize={14}
+                      fontSize={12}
                       fontWeight={500}
                     >
                       {`${value} (${percentage})`}
@@ -133,7 +133,7 @@ export function RecruitChart() {
         </ChartContainer>
         
         {/* Legend */}
-        <div className="flex items-center justify-center gap-8 mt-6 px-6 pb-2">
+        <div className="flex items-center justify-center gap-8 mt-4 px-6 pb-1">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-[#f5e6e1]" />
             <span className="text-sm text-[#090909]">New Members</span>

@@ -47,12 +47,12 @@ export const BrandUsersMetricCard = (): JSX.Element => {
         </CardTitle>
         <p className="text-sm text-[#787676] font-normal">(24 months rolling)</p>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4">
+      <CardContent className="flex flex-col gap-3">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square h-[250px] w-full"
+          className="mx-auto aspect-square h-[200px] w-full"
         >
-          <PieChart width={250} height={250}>
+          <PieChart width={200} height={200}>
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
@@ -68,7 +68,7 @@ export const BrandUsersMetricCard = (): JSX.Element => {
                   x="50%"
                   y="50%"
                   dy="-0.3em"
-                  className="text-3xl font-bold"
+                  className="text-2xl font-bold"
                   fill="#090909"
                 >
                   {totalUsers.toLocaleString()}
@@ -77,7 +77,7 @@ export const BrandUsersMetricCard = (): JSX.Element => {
                   x="50%"
                   y="50%"
                   dy="1.2em"
-                  className="text-sm text-center text-wrap"
+                  className="text-xs text-center text-wrap"
                   fill="#787676"
                 >
                   Active Members
@@ -90,8 +90,8 @@ export const BrandUsersMetricCard = (): JSX.Element => {
               nameKey="brand"
               cx="50%"
               cy="50%"
-              innerRadius={65}
-              outerRadius={90}
+              innerRadius={55}
+              outerRadius={75}
               strokeWidth={0}
             >
               {chartData.map((entry, index) => (
@@ -118,10 +118,10 @@ export const BrandUsersMetricCard = (): JSX.Element => {
         </div>
 
         {/* Value Banner */}
-        <div className="mt-2 p-4 bg-gray-50 rounded-lg">
+        <div className="mt-1 p-3 bg-gray-50 rounded-lg">
           <div className="flex flex-col">
-            <p className="text-base font-medium text-[#090909]">Multi-Brand Value</p>
-            <p className="text-2xl font-semibold text-[#090909] mt-2 mb-2">43% of Members</p>
+            <p className="text-sm font-medium text-[#090909]">Multi-Brand Value</p>
+            <p className="text-xl font-semibold text-[#090909] mt-1 mb-1">43% of Members</p>
             <p className="text-sm text-[#787676]">Members using multiple Allergan brands show higher engagement and lifetime value</p>
           </div>
         </div>

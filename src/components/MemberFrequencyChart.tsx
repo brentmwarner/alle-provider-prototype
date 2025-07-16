@@ -67,7 +67,7 @@ const CustomLabel = (props: any) => {
       fill={fill}
       textAnchor="middle"
       dominantBaseline="middle"
-      fontSize={14}
+      fontSize={12}
       fontWeight={500}
     >
       {`${value} (${percentage}%)`}
@@ -84,14 +84,14 @@ export function MemberFrequencyChart() {
           Track how often members visit - comparing last 12 months vs. prior period
         </CardDescription>
       </CardHeader>
-      <CardContent className="pt-6">
-        <ChartContainer config={chartConfig} className="h-[320px] w-full">
+      <CardContent className="pt-4">
+        <ChartContainer config={chartConfig} className="h-[240px] w-full">
           <BarChart
             data={chartData}
             margin={{
-              top: 50,
+              top: 40,
               right: 20,
-              bottom: 40,
+              bottom: 30,
               left: 0,
             }}
             barCategoryGap="25%"
@@ -142,11 +142,11 @@ export function MemberFrequencyChart() {
         </ChartContainer>
         
         {/* Banner Section */}
-        <div className="mt-6 bg-gray-50 rounded-lg p-4">
-          <h3 className="text-base font-medium text-[#090909] mb-2">
+        <div className="mt-4 bg-gray-50 rounded-lg p-3">
+          <h3 className="text-sm font-medium text-[#090909] mb-2">
             Your returning patients are lower this year averaging at 1.8 compared to 1.83 last year
           </h3>
-          <p className="text-sm text-[#787676] mb-4">
+          <p className="text-sm text-[#787676] mb-3">
             Turn on automated reminder campaigns in Email Marketing to increase patient frequency
           </p>
           <div className="flex justify-end">
@@ -157,7 +157,7 @@ export function MemberFrequencyChart() {
         </div>
         
         {/* Legend */}
-        <div className="flex items-center justify-center gap-6 mt-6 px-6 pb-2">
+        <div className="flex items-center justify-center gap-6 mt-4 px-6 pb-1">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-sm bg-[#e8d4d1]" />
             <span className="text-sm text-[#090909]">1x Visit</span>

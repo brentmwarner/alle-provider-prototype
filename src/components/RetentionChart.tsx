@@ -48,15 +48,15 @@ export function RetentionChart() {
           You're retaining less patients this year than the previous 12 months
         </CardDescription>
       </CardHeader>
-      <CardContent className="pt-6">
-        <ChartContainer config={chartConfig} className="h-[320px] w-full">
+      <CardContent className="pt-4">
+        <ChartContainer config={chartConfig} className="h-[240px] w-full">
           <BarChart
             accessibilityLayer
             data={chartData}
             margin={{
-              top: 50,
+              top: 40,
               right: 20,
-              bottom: 40,
+              bottom: 30,
               left: -20,
             }}
             barCategoryGap="20%"
@@ -96,7 +96,7 @@ export function RetentionChart() {
                       y={y - 8}
                       fill="#090909"
                       textAnchor="middle"
-                      fontSize={14}
+                      fontSize={12}
                       fontWeight={500}
                     >
                       {`${value.toLocaleString()} (${percentage})`}
@@ -119,7 +119,7 @@ export function RetentionChart() {
                       y={y - 8}
                       fill="#090909"
                       textAnchor="middle"
-                      fontSize={14}
+                      fontSize={12}
                       fontWeight={500}
                     >
                       {`${value.toLocaleString()} (${percentage})`}
@@ -132,16 +132,16 @@ export function RetentionChart() {
         </ChartContainer>
         
         {/* Value Highlight Banner */}
-        <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+        <div className="mt-4 p-3 bg-gray-50 rounded-lg">
           <div className="flex flex-col">
-            <p className="text-base font-medium text-[#090909]">Retention Value</p>
-            <p className="text-2xl font-semibold text-[#090909] mt-2 mb-2">$487,320</p>
+            <p className="text-sm font-medium text-[#090909]">Retention Value</p>
+            <p className="text-xl font-semibold text-[#090909] mt-1 mb-1">$487,320</p>
             <p className="text-sm text-[#787676]">Estimated revenue from retained Allē members, from 782 retained members</p>
           </div>
         </div>
         
         {/* Legend */}
-        <div className="flex items-center justify-center gap-8 mt-6 px-6 pb-2">
+        <div className="flex items-center justify-center gap-8 mt-4 px-6 pb-1">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-[#e8d4d1]" />
             <span className="text-sm text-[#090909]">Retained</span>

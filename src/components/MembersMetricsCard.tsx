@@ -29,10 +29,10 @@ export const MembersMetricsCard = (): JSX.Element => {
         </CardTitle>
         <p className="text-sm text-[#787676] font-normal">(24 months rolling)</p>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4">
-        {/* Main Chart Area - increased height */}
-        <div className="mx-auto w-full h-[280px] flex items-center justify-center">
-          <div className="flex items-end gap-12 h-[240px]">
+      <CardContent className="flex flex-col gap-3">
+        {/* Main Chart Area - reduced height */}
+        <div className="mx-auto w-full h-[220px] flex items-center justify-center">
+          <div className="flex items-end gap-10 h-[180px]">
             {memberData.map((item, index) => {
               const heightPercentage = (item.value / maxValue) * 100;
               
@@ -43,8 +43,8 @@ export const MembersMetricsCard = (): JSX.Element => {
                     {item.value.toLocaleString()}
                   </div>
                   
-                  {/* Bar container with increased height */}
-                  <div className="h-[190px] w-20 flex items-end">
+                  {/* Bar container with reduced height */}
+                  <div className="h-[150px] w-16 flex items-end">
                     <div
                       className="w-full rounded-t-md transition-all duration-300"
                       style={{
@@ -66,9 +66,9 @@ export const MembersMetricsCard = (): JSX.Element => {
         </div>
 
         {/* Summary Box - matching pie chart style */}
-        <div className="p-4 bg-gray-50 rounded-lg text-center">
+        <div className="p-3 bg-gray-50 rounded-lg text-center">
           <p className="text-sm font-medium text-[#787676] mb-1">Total Members</p>
-          <p className="text-3xl font-semibold text-[#090909]">
+          <p className="text-2xl font-semibold text-[#090909]">
             {totalMembers.toLocaleString()}
           </p>
         </div>

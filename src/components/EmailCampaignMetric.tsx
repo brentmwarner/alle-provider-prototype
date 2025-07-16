@@ -39,7 +39,7 @@ const campaignData = [
 
 export const EmailCampaignMetric = (): JSX.Element => {
   return (
-    <Card className="border-[#dedad7] p-6">
+    <Card className="border-[#dedad7] p-4">
       <div className="space-y-3">
         <div>
           <h3 className="text-xl font-medium text-[#090909]">Email Campaign Performance</h3>

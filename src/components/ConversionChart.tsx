@@ -51,14 +51,14 @@ export function ConversionChart() {
           See how many patients were converted to another brand within your practice.
         </CardDescription>
       </CardHeader>
-      <CardContent className="pt-6">
-        <div className="space-y-6">
+      <CardContent className="pt-4">
+        <div className="space-y-4">
           <div>
-            <label className="text-sm font-medium text-[#090909] block mb-2">
+            <label className="text-sm font-medium text-[#090909] block mb-1">
               Select conversion brand
             </label>
             <Select value={selectedBrand} onValueChange={(value) => setSelectedBrand(value as keyof typeof brandData)}>
-              <SelectTrigger className="w-48 h-10 text-sm border-[#e0e0e0] text-[#090909]">
+              <SelectTrigger className="w-48 h-9 text-sm border-[#e0e0e0] text-[#090909]">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -80,7 +80,7 @@ export function ConversionChart() {
                     </div>
                     <div className="text-sm text-[#787676]">members</div>
                   </div>
-                  <div className={`relative h-12 ${index === 0 ? 'bg-[#B98977]' : 'bg-[#e8d4d1]'} rounded`} style={{ width: `${(data.members / maxValue) * 100}%` }}>
+                  <div className={`relative h-10 ${index === 0 ? 'bg-[#B98977]' : 'bg-[#e8d4d1]'} rounded`} style={{ width: `${(data.members / maxValue) * 100}%` }}>
                     <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white font-medium">
                       {data.year}
                     </div>
@@ -90,10 +90,10 @@ export function ConversionChart() {
             })}
           </div>
 
-          <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+          <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <div className="flex flex-col">
-              <p className="text-base font-medium text-[#090909]">Conversion Success Rate</p>
-              <p className="text-sm text-[#787676] mt-2">
+              <p className="text-sm font-medium text-[#090909]">Conversion Success Rate</p>
+              <p className="text-sm text-[#787676] mt-1">
                 Projected revenue from {currentData.successMembers} Allē members who successfully transitioned to a new product.
               </p>
             </div>

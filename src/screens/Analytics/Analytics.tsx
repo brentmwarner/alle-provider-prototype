@@ -8,6 +8,7 @@ import { RecruitChart } from "../../components/RecruitChart";
 import { ConversionChart } from "../../components/ConversionChart";
 import { Tabs, TabsContent, TabsListLine, TabsTriggerLine } from "../../components/ui/tabs";
 import { PaymentPlansMetricCard } from "../../components/PaymentPlansMetricCard";
+import { MembersMetricsCard } from "../../components/MembersMetricsCard";
 import { BrandUsersMetricCard } from "../../components/BrandUsersMetricCard";
 import { FlashMetric } from "../../components/FlashMetric";
 import { AlleTacticsCard } from "../../components/AlleTacticsCard";
@@ -93,7 +94,7 @@ export const Analytics = (): JSX.Element => {
           
           <TabsContent value="brand" className="mt-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <PaymentPlansMetricCard />
+              <MembersMetricsCard />
               <BrandUsersMetricCard />
             </div>
           </TabsContent>

@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { CartesianGrid, Line, LineChart, XAxis, YAxis, Dot } from "recharts"
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
 
 import {
   Card,
@@ -55,6 +55,68 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
+// Custom dot component for the pulsing effect
+const PulsingDot = (props: any) => {
+  const { cx, cy, index } = props;
+  const [showDot, setShowDot] = React.useState(false);
+  
+  // Only show dot on the last data point
+  if (index !== chartData.length - 1) return null;
+  
+  // Delay appearance after line animation
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowDot(true);
+    }, 1500); // Delay to appear after line animation
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  if (!showDot) return null;
+  
+  return (
+    <g>
+      <style>
+        {`
+          @keyframes pulse-fade {
+            0% {
+              r: 4;
+              opacity: 0.8;
+            }
+            20% {
+              r: 20;
+              opacity: 0;
+            }
+            100% {
+              r: 20;
+              opacity: 0;
+            }
+          }
+          
+          .pulse-ring {
+            animation: pulse-fade 6s ease-out infinite;
+            transform-origin: center;
+          }
+        `}
+      </style>
+      <circle
+        cx={cx}
+        cy={cy}
+        r="4"
+        fill="#9a6b5e"
+        opacity="0.8"
+        className="pulse-ring"
+      />
+      <circle
+        cx={cx}
+        cy={cy}
+        r="3"
+        fill="#9a6b5e"
+      />
+    </g>
+  );
+};
+
 export function LifetimeValueChart() {
   const totalRevenue = "$18,996"
   const multiplier = "3.2"
@@ -83,8 +145,8 @@ export function LifetimeValueChart() {
             accessibilityLayer
             data={chartData}
             margin={{
-              left: 12,
-              right: 12,
+              left: 20,
+              right: 30,
               top: 12,
               bottom: 12,
             }}
@@ -112,8 +174,8 @@ export function LifetimeValueChart() {
                 '2024-01-01',
                 '2025-01-01'
               ]}
-              domain={['2020-01-01', '2025-01-01']}
-              padding={{ left: 20, right: 20 }}
+              domain={['dataMin', 'dataMax']}
+              padding={{ left: 0, right: 0 }}
             />
             <YAxis
               tickLine={false}
@@ -144,8 +206,10 @@ export function LifetimeValueChart() {
               type="monotone"
               stroke="#9a6b5e"
               strokeWidth={3}
-              dot={false}
+              strokeLinecap="round"
+              dot={PulsingDot}
               activeDot={{ r: 6, fill: "#9a6b5e" }}
+              animationDuration={1500}
             />
           </LineChart>
         </ChartContainer>

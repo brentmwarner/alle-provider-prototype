@@ -3,9 +3,11 @@ import { PageTemplate } from "../../components/PageTemplate";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
 import { ReportBuilder } from "../../components/ReportBuilder";
+import { Toast, useToast } from "../../components/ui/toast";
 
 export const Reports = (): JSX.Element => {
   const [showReportBuilder, setShowReportBuilder] = useState(false);
+  const { toast, showToast, hideToast } = useToast();
   const reports = [
     {
       title: "Patient 360 Report",
@@ -50,6 +52,15 @@ export const Reports = (): JSX.Element => {
     console.log("Generating report with config:", config);
     // TODO: Implement actual report generation logic
     // This would typically call an API endpoint with the config
+    
+    // Show toast notification
+    showToast("Your report is being downloaded");
+    
+    // Simulate download process (replace with actual download logic)
+    setTimeout(() => {
+      // This is where the actual download would happen
+      console.log("Report download completed");
+    }, 1000);
   };
 
   return (
@@ -89,6 +100,10 @@ export const Reports = (): JSX.Element => {
                       variant="default" 
                       size="sm"
                       className="text-xs"
+                      onClick={() => {
+                        showToast("Your report is being downloaded");
+                        // TODO: Implement actual download logic
+                      }}
                     >
                       Download
                     </Button>
@@ -112,6 +127,12 @@ export const Reports = (): JSX.Element => {
       open={showReportBuilder}
       onOpenChange={setShowReportBuilder}
       onGenerateReport={handleGenerateReport}
+    />
+    
+    <Toast
+      message={toast.message}
+      show={toast.show}
+      onHide={hideToast}
     />
     </>
   );

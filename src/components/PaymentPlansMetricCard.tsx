@@ -1,8 +1,7 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Pie, PieChart, Cell, ResponsiveContainer, Label, Sector } from "recharts";
-import { PieSectorDataItem } from "recharts/types/polar/Pie";
+import { Pie, PieChart } from "recharts";
 import {
   ChartConfig,
   ChartContainer,
@@ -11,21 +10,21 @@ import {
 } from "./ui/chart";
 
 const chartData = [
-  { name: "New Allē Members", value: 19, fill: "#9a6b5e" },
-  { name: "Existing Members", value: 24, fill: "#e8d4d1" },
+  { name: "total", value: 43, fill: "#e8d4d1", label: "Total Members Financed" },
+  { name: "new", value: 19, fill: "#9a6b5e", label: "New Members From Payment Plans" },
 ];
 
 const chartConfig = {
   value: {
     label: "Members",
   },
-  "New Allē Members": {
-    label: "New Allē Members",
-    color: "#9a6b5e",
-  },
-  "Existing Members": {
-    label: "Existing Members",
+  total: {
+    label: "Total Members Financed",
     color: "#e8d4d1",
+  },
+  new: {
+    label: "New Members From Payment Plans",
+    color: "#9a6b5e",
   },
 } satisfies ChartConfig;
 
@@ -44,84 +43,31 @@ export const PaymentPlansMetricCard = (): JSX.Element => {
           {/* Pie Chart */}
           <ChartContainer
             config={chartConfig}
-            className="mx-auto aspect-square h-[220px] w-full"
+            className="[&_.recharts-pie-label-text]:fill-foreground mx-auto aspect-square h-[220px] w-full"
           >
-            <PieChart width={220} height={220}>
-              <ChartTooltip
-                cursor={false}
-                content={<ChartTooltipContent hideLabel />}
-              />
-              <Pie
-                data={chartData}
-                dataKey="value"
+            <PieChart>
+              <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+              <Pie 
+                data={chartData} 
+                dataKey="value" 
+                label 
                 nameKey="name"
                 cx="50%"
                 cy="50%"
-                innerRadius={60}
                 outerRadius={80}
-                strokeWidth={0}
-                activeIndex={0}
-                activeShape={({
-                  outerRadius = 0,
-                  ...props
-                }: PieSectorDataItem) => (
-                  <Sector {...props} outerRadius={outerRadius + 10} />
-                )}
-              >
-                {chartData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.fill} />
-                ))}
-                <Label
-                  content={({ viewBox }) => {
-                    if (viewBox && "cx" in viewBox && "cy" in viewBox) {
-                      return (
-                        <text
-                          x={viewBox.cx}
-                          y={viewBox.cy}
-                          textAnchor="middle"
-                          dominantBaseline="middle"
-                        >
-                          <tspan
-                            x={viewBox.cx}
-                            y={viewBox.cy}
-                            className="fill-foreground text-2xl font-bold"
-                          >
-                            {totalMembers}
-                          </tspan>
-                          <tspan
-                            x={viewBox.cx}
-                            y={(viewBox.cy || 0) + 24}
-                            className="fill-muted-foreground text-xs"
-                          >
-                            Total
-                          </tspan>
-                        </text>
-                      )
-                    }
-                  }}
-                />
-              </Pie>
+              />
             </PieChart>
           </ChartContainer>
 
-          {/* Key Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "#9a6b5e" }}></div>
-                <p className="text-sm font-medium text-[#787676]">New Allē Members</p>
-              </div>
-              <p className="text-xl font-semibold text-[#090909]">19</p>
-              <p className="text-sm text-[#787676] mt-1">via Payment Plan</p>
+          {/* Legend */}
+          <div className="flex flex-row w-full justify-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#e8d4d1" }}></div>
+              <span className="text-sm text-[#787676]">Total Members Financed <span className="font-medium">43</span></span>
             </div>
-            
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "#e8d4d1" }}></div>
-                <p className="text-sm font-medium text-[#787676]">Existing Members</p>
-              </div>
-              <p className="text-xl font-semibold text-[#090909]">24</p>
-              <p className="text-sm text-[#787676] mt-1">Financed at Sold-To</p>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#9a6b5e" }}></div>
+              <span className="text-sm text-[#787676]">New Members From Payment Plans <span className="font-medium">19</span></span>
             </div>
           </div>
 

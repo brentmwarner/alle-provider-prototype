@@ -9,7 +9,6 @@ import { ConversionChart } from "../../components/ConversionChart";
 import { Tabs, TabsContent, TabsListLine, TabsTriggerLine } from "../../components/ui/tabs";
 import { PaymentPlansMetricCard } from "../../components/PaymentPlansMetricCard";
 import { MembersMetricsCard } from "../../components/MembersMetricsCard";
-import { MembersMetricsCardV2 } from "../../components/MembersMetricsCardV2";
 import { BrandUsersMetricCard } from "../../components/BrandUsersMetricCard";
 import { FlashMetric } from "../../components/FlashMetric";
 import { AlleTacticsCard } from "../../components/AlleTacticsCard";
@@ -75,7 +74,7 @@ export const Analytics = (): JSX.Element => {
         <Tabs defaultValue="business" className="w-full">
           <TabsListLine>
             <TabsTriggerLine value="business">Business Performance</TabsTriggerLine>
-            <TabsTriggerLine value="brand">Brand Performance</TabsTriggerLine>
+            <TabsTriggerLine value="brand">Member Performance</TabsTriggerLine>
             <TabsTriggerLine value="alle">Allē Performance</TabsTriggerLine>
           </TabsListLine>
           
@@ -95,11 +94,8 @@ export const Analytics = (): JSX.Element => {
           
           <TabsContent value="brand" className="mt-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <MembersMetricsCardV2 />
-              <BrandUsersMetricCard />
-            </div>
-            <div className="mt-6">
               <MembersMetricsCard />
+              <BrandUsersMetricCard />
             </div>
           </TabsContent>
           

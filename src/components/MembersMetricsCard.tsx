@@ -4,16 +4,16 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 const memberData = [
   {
-    name: "Member",
+    name: "Members",
     value: 2789,
     percentage: 88,
-    fill: "#f9f3f1",
+    color: "#f9f3f1",
   },
   {
     name: "A-list",
     value: 391,
     percentage: 12,
-    fill: "#b98977",
+    color: "#b98977",
   },
 ];
 
@@ -29,60 +29,63 @@ export const MembersMetricsCard = (): JSX.Element => {
         </CardTitle>
         <p className="text-sm text-[#787676] font-normal">(24 months rolling)</p>
       </CardHeader>
-      <CardContent className="pb-4">
-        <div className="flex flex-col gap-3">
-          {/* Vertical Bar Chart */}
-          <div className="flex items-end justify-center gap-12 h-40">
-            {memberData.map((segment, index) => {
-              const barHeight = (segment.value / maxValue) * 100;
+      <CardContent className="flex flex-col gap-4">
+        {/* Main Chart Area - increased height */}
+        <div className="mx-auto w-full h-[280px] flex items-center justify-center">
+          <div className="flex items-end gap-12 h-[240px]">
+            {memberData.map((item, index) => {
+              const heightPercentage = (item.value / maxValue) * 100;
+              
               return (
-                <div key={index} className="flex flex-col items-center h-full">
-                  {/* Value label above bar with proper spacing */}
-                  <div className="text-sm font-semibold text-[#090909] mb-1">
-                    {segment.value.toLocaleString()}
+                <div key={index} className="flex flex-col items-center">
+                  {/* Value above bar */}
+                  <div className="text-sm font-semibold text-[#090909] mb-2">
+                    {item.value.toLocaleString()}
                   </div>
-                  {/* Bar container */}
-                  <div className="relative flex-1 w-20 flex items-end">
-                    <div 
-                      className="w-full rounded-t-lg transition-all duration-300"
-                      style={{ 
-                        backgroundColor: segment.fill,
-                        height: `${barHeight}%`
+                  
+                  {/* Bar container with increased height */}
+                  <div className="h-[190px] w-20 flex items-end">
+                    <div
+                      className="w-full rounded-t-md transition-all duration-300"
+                      style={{
+                        backgroundColor: item.color,
+                        height: `${heightPercentage}%`,
                       }}
                     />
                   </div>
+                  
                   {/* Label below bar */}
-                  <div className="mt-1 text-sm text-[#787676] text-center">
-                    {segment.name}
-                  </div>
-                  <div className="text-xs text-[#787676] text-center">
-                    {segment.percentage}%
+                  <div className="mt-2 text-center">
+                    <div className="text-sm text-[#787676]">{item.name}</div>
+                    <div className="text-xs text-[#787676]">{item.percentage}%</div>
                   </div>
                 </div>
               );
             })}
           </div>
+        </div>
 
-          {/* Summary */}
-          <div className="p-2.5 bg-gray-50 rounded-lg text-center">
-            <p className="text-sm font-medium text-[#787676]">Total Members</p>
-            <p className="text-2xl font-semibold text-[#090909] mt-0.5">{totalMembers.toLocaleString()}</p>
-          </div>
+        {/* Summary Box - matching pie chart style */}
+        <div className="p-4 bg-gray-50 rounded-lg text-center">
+          <p className="text-sm font-medium text-[#787676] mb-1">Total Members</p>
+          <p className="text-3xl font-semibold text-[#090909]">
+            {totalMembers.toLocaleString()}
+          </p>
+        </div>
 
-          {/* Legend with values */}
-          <div className="flex items-center gap-6 justify-center">
-            {memberData.map((segment, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <div 
-                  className="w-3 h-3 rounded-full" 
-                  style={{ backgroundColor: segment.fill }}
-                />
-                <span className="text-sm text-[#787676]">
-                  {segment.name} • {segment.value.toLocaleString()} ({segment.percentage}%)
-                </span>
-              </div>
-            ))}
-          </div>
+        {/* Legend - matching pie chart style */}
+        <div className="flex items-center gap-8 justify-center px-4">
+          {memberData.map((item, index) => (
+            <div key={index} className="flex items-center gap-2">
+              <div
+                className="w-3 h-3 rounded-full"
+                style={{ backgroundColor: item.color }}
+              />
+              <span className="text-sm text-[#787676]">
+                {item.name} • {item.value.toLocaleString()} ({item.percentage}%)
+              </span>
+            </div>
+          ))}
         </div>
       </CardContent>
     </Card>

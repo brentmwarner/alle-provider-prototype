@@ -77,7 +77,7 @@ export const BrandUsersMetricCard = (): JSX.Element => {
                   x="50%"
                   y="50%"
                   dy="1.2em"
-                  className="text-sm text-center"
+                  className="text-sm text-center text-wrap"
                   fill="#787676"
                 >
                   Active Members

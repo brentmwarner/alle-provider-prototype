@@ -57,49 +57,46 @@ export const BrandUsersMetricCard = (): JSX.Element => {
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
+            <g>
+              <text
+                x="50%"
+                y="50%"
+                textAnchor="middle"
+                dominantBaseline="middle"
+              >
+                <tspan
+                  x="50%"
+                  y="50%"
+                  dy="-0.3em"
+                  className="text-3xl font-bold"
+                  fill="#090909"
+                >
+                  {totalUsers.toLocaleString()}
+                </tspan>
+                <tspan
+                  x="50%"
+                  y="50%"
+                  dy="1.2em"
+                  className="text-sm text-center"
+                  fill="#787676"
+                >
+                  Active Members
+                </tspan>
+              </text>
+            </g>
             <Pie
               data={chartData}
               dataKey="users"
               nameKey="brand"
               cx="50%"
               cy="50%"
-              innerRadius={50}
+              innerRadius={65}
               outerRadius={90}
               strokeWidth={0}
             >
               {chartData.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.fill} />
               ))}
-              <Label
-                content={({ viewBox }) => {
-                  if (viewBox && "cx" in viewBox && "cy" in viewBox) {
-                    return (
-                      <text
-                        x={viewBox.cx}
-                        y={viewBox.cy}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                      >
-                        <tspan
-                          x={viewBox.cx}
-                          y={viewBox.cy}
-                          className="fill-foreground text-3xl font-bold"
-                        >
-                          3,180
-                        </tspan>
-                        <tspan
-                          x={viewBox.cx}
-                          y={(viewBox.cy || 0) + 24}
-                          className="fill-muted-foreground text-sm"
-                        >
-                          active members
-                        </tspan>
-                      </text>
-                    )
-                  }
-                  return null
-                }}
-              />
             </Pie>
           </PieChart>
         </ChartContainer>

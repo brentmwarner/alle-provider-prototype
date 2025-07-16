@@ -1,6 +1,6 @@
 "use client"
 
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Cell, Text } from "recharts"
 import {
   Card,
   CardContent,
@@ -14,10 +14,11 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "./ui/chart"
+import { Button } from "./ui/button"
 
 const chartData = [
   { 
-    period: "Prior R12",
+    period: "Last Year",
     "1x": 917,
     "2x": 535,
     "3x+": 396,
@@ -25,7 +26,7 @@ const chartData = [
     avgFrequency: 1.83
   },
   { 
-    period: "Current R12",
+    period: "This Year",
     "1x": 1004,
     "2x": 479,
     "3x+": 395,
@@ -48,6 +49,31 @@ const chartConfig = {
     color: "#090909",
   },
 } satisfies ChartConfig
+
+const CustomLabel = (props: any) => {
+  const { x, y, width, height, value, dataKey, index } = props;
+  const dataPoint = chartData[index];
+  if (!dataPoint || !value) return null;
+  
+  const percentage = Math.round((value / dataPoint.total) * 100);
+  const yPos = y + height / 2;
+  
+  const fill = dataKey === "1x" ? "#090909" : "white";
+  
+  return (
+    <text
+      x={x + width / 2}
+      y={yPos}
+      fill={fill}
+      textAnchor="middle"
+      dominantBaseline="middle"
+      fontSize={14}
+      fontWeight={500}
+    >
+      {`${value} (${percentage}%)`}
+    </text>
+  );
+};
 
 export function MemberFrequencyChart() {
   return (
@@ -87,38 +113,47 @@ export function MemberFrequencyChart() {
               cursor={false}
               content={
                 <ChartTooltipContent 
-                  formatter={(value: any, name: string, props: any) => {
+                  formatter={(value: any, name: any, props: any) => {
                     const total = props.payload.total;
                     const percentage = Math.round((value / total) * 100);
-                    return `${value.toLocaleString()} (${percentage}%)`;
+                    return (
+                      <div className="flex items-center gap-2">
+                        <div 
+                          className="w-3 h-3 rounded-sm" 
+                          style={{ 
+                            backgroundColor: name === "3x+" ? "#090909" : 
+                                           name === "2x" ? "#B98977" : 
+                                           "#e8d4d1" 
+                          }} 
+                        />
+                        <span>{value.toLocaleString()} members ({percentage}%)</span>
+                      </div>
+                    );
                   }}
+                  labelFormatter={(label) => label}
                 />
               }
             />
             
-            <Bar dataKey="3x+" stackId="a" fill="#090909" radius={[0, 0, 0, 0]} isAnimationActive={false} />
-            <Bar dataKey="2x" stackId="a" fill="#B98977" radius={[0, 0, 0, 0]} isAnimationActive={false} />
-            <Bar dataKey="1x" stackId="a" fill="#e8d4d1" radius={[4, 4, 0, 0]} isAnimationActive={false} />
+            <Bar dataKey="3x+" stackId="a" fill="#090909" radius={[0, 0, 0, 0]} isAnimationActive={false} label={<CustomLabel dataKey="3x+" />} />
+            <Bar dataKey="2x" stackId="a" fill="#B98977" radius={[0, 0, 0, 0]} isAnimationActive={false} label={<CustomLabel dataKey="2x" />} />
+            <Bar dataKey="1x" stackId="a" fill="#e8d4d1" radius={[4, 4, 0, 0]} isAnimationActive={false} label={<CustomLabel dataKey="1x" />} />
           </BarChart>
         </ChartContainer>
         
-        {/* Data Summary Section */}
-        <div className="mt-6 grid grid-cols-2 gap-4 px-6">
-          {chartData.map((period, idx) => (
-            <div key={idx} className="bg-gray-50 rounded-lg p-4">
-              <h4 className="text-sm font-medium text-[#090909] mb-3">{period.period}</h4>
-              <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-xs text-[#787676]">Total Members:</span>
-                  <span className="text-sm font-medium text-[#090909]">{period.total.toLocaleString()}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-xs text-[#787676]">Avg Frequency:</span>
-                  <span className="text-sm font-medium text-[#090909]">{period.avgFrequency}</span>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* Banner Section */}
+        <div className="mt-6 bg-gray-50 rounded-lg p-4">
+          <h3 className="text-base font-medium text-[#090909] mb-2">
+            Your returning patients are lower this year averaging at 1.8 compared to 1.83 last year
+          </h3>
+          <p className="text-sm text-[#787676] mb-4">
+            Turn on automated reminder campaigns in Email Marketing to increase patient frequency
+          </p>
+          <div className="flex justify-end">
+            <Button className="bg-[#090909] text-white hover:bg-[#1a1a1a] px-6 py-2">
+              Go to Email Marketing
+            </Button>
+          </div>
         </div>
         
         {/* Legend */}

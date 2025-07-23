@@ -1316,9 +1316,6 @@ video {
 .bg-\[--color-bg\] {
   background-color: var(--color-bg);
 }
-.bg-accent {
-  background-color: hsl(var(--accent));
-}
 .bg-background {
   background-color: hsl(var(--background));
 }

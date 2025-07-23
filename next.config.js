@@ -10,6 +10,12 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Turbopack optimizations (now stable)
+  turbopack: {
+    resolveAlias: {
+      '@': './src',
+    },
+  },
 }
 
 module.exports = nextConfig

@@ -1,4 +1,8 @@
 {
+  "/insights/analytics/page": "app/insights/analytics/page.js",
+  "/insights/reports/page": "app/insights/reports/page.js",
+  "/marketing/page": "app/marketing/page.js",
   "/dashboard/page": "app/dashboard/page.js",
-  "/insights/analytics/page": "app/insights/analytics/page.js"
+  "/patient-360/page": "app/patient-360/page.js",
+  "/store/page": "app/store/page.js"
 }

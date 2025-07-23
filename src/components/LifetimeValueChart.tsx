@@ -57,7 +57,7 @@ const chartConfig = {
 
 // Custom dot component for the pulsing effect
 const PulsingDot = (props: any) => {
-  const { cx, cy, index } = props;
+  const { cx, cy, index, key } = props;
   const [showDot, setShowDot] = React.useState(false);
   
   // Only show dot on the last data point
@@ -75,7 +75,7 @@ const PulsingDot = (props: any) => {
   if (!showDot) return null;
   
   return (
-    <g>
+    <g key={key || `pulsing-dot-${index}-${cx}-${cy}`}>
       <style>
         {`
           @keyframes pulse-fade {

@@ -1,8 +1,11 @@
 {
-  "/insights/analytics/page": "app/insights/analytics/page.js",
-  "/insights/reports/page": "app/insights/reports/page.js",
-  "/marketing/page": "app/marketing/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/dashboard/page": "app/dashboard/page.js",
+  "/page": "app/page.js",
+  "/insights/analytics/page": "app/insights/analytics/page.js",
   "/patient-360/page": "app/patient-360/page.js",
+  "/marketing/page": "app/marketing/page.js",
+  "/insights/reports/page": "app/insights/reports/page.js",
+  "/settings/page": "app/settings/page.js",
   "/store/page": "app/store/page.js"
 }

@@ -1,0 +1,11 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/dashboard/page": "/dashboard",
+  "/page": "/",
+  "/insights/analytics/page": "/insights/analytics",
+  "/patient-360/page": "/patient-360",
+  "/marketing/page": "/marketing",
+  "/insights/reports/page": "/insights/reports",
+  "/settings/page": "/settings",
+  "/store/page": "/store"
+}
